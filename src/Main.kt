@@ -1,3 +1,4 @@
+import java.util.*
 import kotlin.random.Random
 
 fun main() {
@@ -19,6 +20,7 @@ fun main() {
 
     //Задача на паре
     var mas = Array(Random.nextInt(10, 50)) {Random.nextInt(10, 50)-30}
+    var intMas = Array(Random.nextInt(10, 50)) {Random.nextInt(10, 50)-30}
     for (i in mas) println("$i ")
     println()
     var positive = 0
@@ -37,4 +39,34 @@ fun main() {
     }
     println(String.format("Среднее арифметическое положительных %6.2f", sumPos / positive))
     println(String.format("Среднее арифметическое отрицательных %6.2f", sumNeg / negative))
+
+    mas.sort()
+    println(mas.contentToString())
+    mas.sortDescending()
+    println(mas.contentToString())
+
+    var masSort = mas.sortedArray()
+    println(masSort.contentToString())
+    var masSortDescending = masSort.sortedArrayDescending()
+    println(masSortDescending.contentToString())
+
+    val intersectMas = intMas.intersect(mas.toList()).toIntArray()
+    println(Arrays.toString(intMas))
+
+    //Содержится элемент в массиве
+    println(mas.contains(7))
+
+    //Среднее значение в массиве
+    println(mas.average())
+
+    //min, max
+    println(mas.min())
+    println(mas.max())
+
+    //перемешиваниие элементов массива
+    mas.shuffle()
+    println(mas.contentToString())
+
+    //удаление дубликатов
+    println(mas.toSet().joinToString())
 }
